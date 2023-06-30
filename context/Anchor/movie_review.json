@@ -1,0 +1,629 @@
+{
+  "version": "0.1.0",
+  "name": "anchor_nft_staking",
+  "instructions": [
+    {
+      "name": "createStakingAccount",
+      "accounts": [
+        {
+          "name": "stakeAccountList",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "infamousstakingnew"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "stake",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftMetadataAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftEdition",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAccountState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "stake_global2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stakeAccountList",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "globalState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "account_global"
+              }
+            ]
+          }
+        },
+        {
+          "name": "programAuthority",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadataProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "increaseStakeCapacity",
+      "accounts": [
+        {
+          "name": "stakeAccountList",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "redeem",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "stakeAccountState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "stake_global2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stakeMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "userStakeAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "prepunstake",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftEdition",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAccountState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "stake_global2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stakeAccountList",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "globalState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "account_global"
+              }
+            ]
+          }
+        },
+        {
+          "name": "programAuthority",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadataProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unstake",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "nftTokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "nftEdition",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAccountState",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "type": "publicKey",
+                "path": "user"
+              },
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "stake_global2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "programAuthority",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stakeMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "stakeAuthority",
+          "isMut": false,
+          "isSigner": false,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "type": "string",
+                "value": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "userStakeAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadataProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "UserStakeInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "stakeStartTime",
+            "type": "i64"
+          },
+          {
+            "name": "tokensOwed",
+            "type": "i64"
+          },
+          {
+            "name": "stakedAmount",
+            "type": "i8"
+          },
+          {
+            "name": "userPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "prevKey",
+            "type": "bool"
+          },
+          {
+            "name": "prevKeyClaimed",
+            "type": "bool"
+          },
+          {
+            "name": "isInitialized",
+            "type": "bool"
+          },
+          {
+            "name": "prevunstake",
+            "type": {
+              "defined": "MintInfo2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "WalletList",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amountstaked",
+            "type": "i64"
+          },
+          {
+            "name": "accountGrown",
+            "type": "bool"
+          },
+          {
+            "name": "specialBoosters",
+            "type": "i64"
+          },
+          {
+            "name": "newUser",
+            "type": {
+              "array": [
+                "i8",
+                7
+              ]
+            }
+          },
+          {
+            "name": "mintlist",
+            "type": {
+              "array": [
+                "publicKey",
+                63
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakedTokenINfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "stakedNfts",
+            "type": "i8"
+          },
+          {
+            "name": "stakedList",
+            "type": {
+              "array": [
+                "publicKey",
+                6
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalStake",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "globalNftCount",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "MintInfo",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tokenMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "preped",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MintInfo2",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "tokenMint",
+            "type": "publicKey"
+          },
+          {
+            "name": "preped",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "AlreadyStaked",
+      "msg": "NFT already staked"
+    },
+    {
+      "code": 6001,
+      "name": "UninitializedAccount",
+      "msg": "State account is uninitialized"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidStakeState",
+      "msg": "Stake state is invalid"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidOwner",
+      "msg": "Nft not owned by user"
+    },
+    {
+      "code": 6004,
+      "name": "NoPrepForUnstake",
+      "msg": "NFT has not been prepaired to be unstaked"
+    },
+    {
+      "code": 6005,
+      "name": "UnclaimedNFT",
+      "msg": "Haven't Claiemd Last NFT"
+    },
+    {
+      "code": 6006,
+      "name": "TokenNotEligble",
+      "msg": "NFT is not Eligble For Staking"
+    },
+    {
+      "code": 6007,
+      "name": "AlreadyInit",
+      "msg": "Account Has Already Been Initiliazed"
+    }
+  ],
+  "metadata": {
+    "address": "9AdA14dP96xHcB4DMpJMYt1aRN46PuF74JXov7z3KCHU"
+  }
+}
